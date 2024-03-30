@@ -1,17 +1,17 @@
-
 <h1>Cadastro de Pessoas</h1><p>
-  <form ngForm name = cadastro>
-    Nome: <input type = "text" name = nome [(ngModel)] = "nome" >
-    Idade : <input type = "text" name = idade [(ngModel)] = "idade" >
-    <button (click)= "cadastrar()">OK</button>
+  <form ngForm name=cadastro>
+      Nome: <input type="text" name=nome [(ngModel)]="pessoa.nome">
+      Idade : <input type="number" name=idade [(ngModel)]="pessoa.idade">
+      <button (click)="cadastrar(pessoa)">OK</button>
   </form>
   <ul>
-    <li *ngFor = "let pessoa of pessoas">
-      {{pessoa.nome}}, {{pessoa.idade}}
-      <button (click) = "excluir(pessoa)"> Excluir </button>
+      <li *ngFor="let pessoa of pessoas">
+          {{ pessoa.nome }}, {{ pessoa.idade }}
+          <button (click)="excluir(pessoa)"> Excluir</button>
   </ul>
-  Total de Pessoas Cadastradas:{{totalPessoas}}
-  <div *ngIf = "!null && maisVelho && maisNovo">
-    Pessoa mais velha: {{maisVelho.nome}}, com: {{maisVelho.idade}}.
-    Pessoa mais nova: {{maisNovo.nome}}, com: {{maisNovo.idade}}.
+  Total de Pessoas Cadastradas: {{ pessoas.length }}
+  <div *ngIf="!null && maisVelho && maisNovo && pessoas.length>=2">
+      Pessoa mais velha: {{ maisVelho.nome }}, com:  {{ maisVelho.idade }}.<br>
+      Pessoa mais nova: {{ maisNovo.nome }}, com:  {{ maisNovo.idade }}.
   </div>
+  
